@@ -9,8 +9,8 @@ node{
 	}
 
 	stage('RUN Unit Tests'){
-		sh "npm install"
-		sh "npm test"
+		sh "/usr/bin/npm install"
+		sh "/usr/bin/npm test"
 	}
   
 	stage('Docker Build, Push'){
