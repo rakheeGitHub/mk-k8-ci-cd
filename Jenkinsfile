@@ -1,4 +1,3 @@
-
 node{
   def Namespace = "pkapp"
   def ImageName = "rakheebala/mkimage"
@@ -26,7 +25,7 @@ node{
 			//sh "cd ansible/sayarapp-deploy"
 			//sh "pwd"
 			sh "kubectl create namespace pkapp"
-			sh "sudo -i helm install rb-pkapp  --namespace=pkapp sayarapp --set image.repository=rakheebala/mkimage --set image.tag=1.0 --set namespace=pkapp
+			sh "sudo -i /usr/local/bin/helm install rb-pkapp  --namespace=pkapp --set image.repository=rakheebala/mkimage --set image.tag=1.0"
 			//helm upgrade --wait --recreate-pods --namespace=pkapp --set image.repository=rakheebala/mkimage --set image.tag=1.0 --set namespace=pkapp sayar-pkapp sayarapp"
         }  
 	}
@@ -35,4 +34,3 @@ node{
 	currentBuild.result = 'FAILURE'
   }
 }
-
