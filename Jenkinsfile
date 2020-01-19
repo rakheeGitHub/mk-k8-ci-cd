@@ -17,7 +17,9 @@ node{
 		
 		withDockerRegistry([credentialsId: "${Creds}", url: 'https://index.docker.io/v1/']) {
 			def customImage = docker.build(ImageName:imageTag)
+			sh "pwd"
     			customImage.push()
+			sh "pwd"
 		}
 	}
   
