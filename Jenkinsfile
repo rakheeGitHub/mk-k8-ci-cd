@@ -14,9 +14,10 @@ node{
 	}
   
 	stage('Docker Build, Push'){
+		
 		withDockerRegistry([credentialsId: "${Creds}", url: 'https://index.docker.io/v1/']) {
-			sh "docker build -t ${ImageName}:${imageTag} ."
-			sh "docker push ${ImageName}"
+			def customImage = docker.build(ImageName:imageTag)
+    			customImage.push()
 		}
 	}
   
